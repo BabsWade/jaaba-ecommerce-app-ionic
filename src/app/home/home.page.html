@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Accueil </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar onIonInput="{this.handleSearch}"></ion-searchbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-content [fullscreen]="true">
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <!--<ion-list lines="full">
+      <ion-item>
+        <ion-label position="floating">prenom</ion-label>
+        <ion-input
+          [(ngModel)]="nomproduit"
+          name="nomproduit"
+          type="text"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">nom</ion-label>
+        <ion-input
+          [(ngModel)]="categorieproduit"
+          name="categorieproduit"
+          type="text"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            type="button"
+            (click)="ajouter()"
+            color="primary"
+            shape="full"
+            expand="block"
+            >ajouter etudiant</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-list>-->
+
+      <!--<ion-list>
+      <ion-list-header> Liste produits </ion-list-header>
+      <ion-item lines="inset" *ngFor="let PRODUITS of PRODUIT">
+        <ion-label>
+          <h5>{{PRODUITS.nomproduit}} - {{PRODUITS.prixproduit}} fcfa</h5>
+        </ion-label>
+      </ion-item>
+    </ion-list>-->
+    </form>
+    <ion-item>
+      <ion-label position="stacked">Magasins</ion-label>
+      <ion-select value="1">
+        <ion-select-option value="Auchan">Auchan</ion-select-option>
+        <ion-select-option value="Jumia">Jumia</ion-select-option>
+        <ion-select-option value="Carrefour">Carrefour</ion-select-option>
+        <ion-select-option value="Casino">Casino</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-icon style="width: 15px" name="arrow-down"></ion-icon>
+    <ion-label style="font-size: 10px">Par moins cher</ion-label>
+    <!--<ion-card
+      [routerLink]="['/details/',PRODUITS.numeroproduit]"
+      lines="inset"
+      *ngFor="let PRODUITS of PRODUIT"
+      class="ic"
+    >
+      <ion-card-header>
+        <ion-card-title
+          (click)="details(PRODUITS.numeroproduit)"
+          style="font-weight: lighter; font-size: 10px"
+          >{{PRODUITS.categorieproduit}}</ion-card-title
+        >
+        <ion-card-subtitle>{{PRODUITS.nomproduit}}</ion-card-subtitle>
+        <ion-card-content>{{PRODUITS.prixproduit}} fcfa</ion-card-content>
+      </ion-card-header>
+    </ion-card>-->
+
+    <ion-item
+      [routerLink]="['/details/',PRODUITS.numeroproduit]"
+      lines="inset"
+      *ngFor="let PRODUITS of PRODUIT"
+    >
+      <ion-avatar slot="start">
+        <img src="/assets/avatar.svg" />
+      </ion-avatar>
+      <ion-label (click)="details(PRODUITS.numeroproduit)">
+        <h6 style="font-size: 10px">{{PRODUITS.categorieproduit}}</h6>
+        <h3>{{PRODUITS.nomproduit}}</h3>
+        <p>{{PRODUITS.prixproduit}} fcfa</p>
+      </ion-label>
+    </ion-item>
+  </ion-content>
+</ion-content>

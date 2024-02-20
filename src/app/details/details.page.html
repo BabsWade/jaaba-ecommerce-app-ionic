@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card lines="inset" *ngFor="let PRODUITS of PRODUIT" class="ic">
+    <ion-card-header>
+      <ion-card-title
+        (click)="details(PRODUITS.numeroproduit)"
+        style="font-weight: lighter; font-size: 10px"
+        >{{PRODUITS.nomproduit}} - {{PRODUITS.prixproduit}} fcfa</ion-card-title
+      >
+    </ion-card-header>
+  </ion-card>
+</ion-content>

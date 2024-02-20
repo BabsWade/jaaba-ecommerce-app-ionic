@@ -1,0 +1,43 @@
+<ion-header>
+  <meta charset="UTF-8" />
+  <ion-toolbar>
+    <ion-title>Magazins</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header> Les Magasins</ion-list-header>
+    <ion-item *ngFor="let store of stores">
+      <ion-thumbnail *ngFor="let image of images" slot="start">
+        <img [src]="image" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{store.name}}</h2>
+        <h3>{{store.city}}</h3>
+        <p>{{store.mail}}</p>
+        <p>{{store.phone}}</p>
+      </ion-label>
+      <ion-icon
+        slot="end"
+        color="primary"
+        name="create"
+        [routerLink]="['/update/', store.numero_magasin]"
+      ></ion-icon>
+      <ion-icon
+        slot="end"
+        color="danger"
+        name="trash"
+        (click)="delete(store.numero_magasin)"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button type="submit" (click)="addStore()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

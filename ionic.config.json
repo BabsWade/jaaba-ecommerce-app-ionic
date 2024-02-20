@@ -1,0 +1,7 @@
+{
+  "name": "jaaba",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
